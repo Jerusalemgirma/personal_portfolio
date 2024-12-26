@@ -3,6 +3,9 @@
       "env": {
         "NODE_VERSION": "18"
       }
-    }
+    },
+    "buildCommand": "CI=false npm run build",
+    "framework": "vite",
+    "outputDirectory": "dist"
   }
   
