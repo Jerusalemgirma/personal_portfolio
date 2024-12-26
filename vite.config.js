@@ -7,8 +7,15 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        quietDeps: true // This will silence SASS deprecation warnings
+        quietDeps: true,
+        logger: {
+          warn: () => {}
+        }
       }
     }
+  },
+  build: {
+    sourcemap: false,
+    cssCodeSplit: false
   }
 })
