@@ -107,12 +107,12 @@ const Contact = () => {
             whileInView={{opacity:1}} 
             transition={{delay:4, duration:1}}
             >
-                <input type="text" required placeholder="Name" name="name" />
-                <input type="email" required placeholder="Email" name="email" />
-                <textarea rows={8} placeholder="Message" name="message"/>
-                <button>Submit</button>
-                {error && "Error"}
-                {success && "Success"}
+                <input type="text" required placeholder="Name" name="from_name" />
+                <input type="email" required placeholder="Email" name="from_email" />
+                <textarea rows={8} placeholder="Message" name="message" required/>
+                <button type="submit">Submit</button>
+                {error && <div className="error">Something went wrong! Please try again.</div>}
+                {success && <div className="success">Message sent successfully!</div>}
             </motion.form>
         </div>
       
