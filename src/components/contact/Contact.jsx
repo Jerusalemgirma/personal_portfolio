@@ -1,6 +1,8 @@
 import { useRef, useState } from "react"
 import "./contact.scss"
 import {motion, useInView} from "framer-motion"
+import emailjs from '@emailjs/browser'
+
 const variants={
     initial:{
         y:500,
@@ -33,15 +35,22 @@ const Contact = () => {
         e.preventDefault();
     
         emailjs
-          .sendForm('service_j4508c6', 'template_4vkhw1q', form.Refcurrent, 'kyK3KPIck6e-zDH_j')
+          .sendForm(
+            'service_j4508c6', 
+            'template_4vkhw1q', 
+            formRef.current,
+            'kyK3KPIck6e-zDH_j'
+          )
           .then(
             (result) => {
               setSuccess(true);
+              setError(false);
+              formRef.current.reset();
             },
             (error) => {
-                setError(true);
-              
-            },
+              setError(true);
+              setSuccess(false);
+            }
           );
         }
   return (
